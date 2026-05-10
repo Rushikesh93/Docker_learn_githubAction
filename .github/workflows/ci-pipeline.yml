@@ -2,10 +2,9 @@ name: CI Pipeline
 
 on:
   push:
-    branches: [main, develop]
-  pull_request:
-    branches: [main]
-  workflow_dispatch:
+    branches:
+      - main
+      - feature/*
 
 
 env:                            # global env vars
@@ -14,6 +13,9 @@ env:                            # global env vars
 jobs:
   build:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: docker-learn-app
     steps:
       - uses: actions/checkout@v4
       - name: Set up JDK
