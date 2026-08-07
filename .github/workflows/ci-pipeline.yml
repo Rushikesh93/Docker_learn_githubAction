@@ -4,7 +4,13 @@ on:
   push:
     branches:
       - main
-      - feature/*
+      - master
+      - feature-*
+
+  pull_request:
+    branches:
+      - master
+
 
 
 env:                            # global env vars
